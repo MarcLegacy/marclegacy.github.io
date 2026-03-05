@@ -39,6 +39,13 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --myBackgroundColor: #464545;
+  --myBackgroundColor-dark: #403F3F;
+  --myBoxShadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  --myBorderRadius: 16px;
+  --myTextColor: #DCDBDB;
+  --myTextColor-dark: #C6C5C5;
+  --myHeaderColor: #ff7518;
 }
 
 *,
@@ -5451,11 +5458,24 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #fff;
+  /*background-color: #fff;*/
+  background-color: #272727;
   background-clip: padding-box;
   border: 0 solid rgba(0, 0, 0, 0.2);
   border-radius: 0.75rem;
   outline: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/img/perlin-noise-cloud-example.png") repeat;
+  opacity: 0.1; /* adjust strength */
+  pointer-events: none;
+  background-size: cover;
+  border-radius: 0.75rem;
 }
 
 .modal-backdrop {
@@ -10002,9 +10022,11 @@ h3 {
   width: 100%;
   max-width: 7rem;
   height: 0.25rem;
-  background-color: #2c3e50;
+  /*background-color: #2c3e50;*/
+  background-color: #ff7518;
   border-radius: 1rem;
-  border-color: #2c3e50 !important;
+  /*border-color: #2c3e50 !important;*/
+  border-color: #ff7518
 }
 .divider-custom .divider-custom-line:first-child {
   margin-right: 1rem;
@@ -10013,14 +10035,17 @@ h3 {
   margin-left: 1rem;
 }
 .divider-custom .divider-custom-icon {
-  color: #2c3e50 !important;
+  /*color: #2c3e50 !important;*/
+  color: #ff7518;
   font-size: 2rem;
 }
 .divider-custom.divider-light .divider-custom-line {
-  background-color: #fff;
+  /*background-color: #fff;*/
+  background-color: #ff7518;
 }
 .divider-custom.divider-light .divider-custom-icon {
-  color: #fff !important;
+  /*color: #fff !important;*/
+  color: #ff7518;
 }
 
 .btn-xl {
@@ -10058,22 +10083,32 @@ h3 {
   font-weight: 700;
 }
 #mainNav .navbar-brand {
-  color: #fff;
+  /*color: #fff;*/
+  color: #DCDBDB;
+}
+#mainNav .navbar-brand:hover {
+  color: #C6C5C5;
 }
 #mainNav .navbar-nav {
   margin-top: 1rem;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
+  /*color: #fff;*/
+  color: #DCDBDB;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #1abc9c;
+  /*color: #1abc9c;*/
+  color: #C6C5C5;
+  background-color: #403F3F;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-  color: #fff;
+  /*color: #fff;*/
+  color: #DCDBDB;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #1abc9c;
+  /*color: #1abc9c;*/
+  color: #C6C5C5;
 }
 #mainNav .navbar-toggler {
   font-size: 80%;
@@ -10094,12 +10129,18 @@ h3 {
     margin-top: 0;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
-    color: #fff;
-    background: #1abc9c;
+    /*color: #fff;*/
+    /*background: #1abc9c;*/
+    color: #DCDBDB;
+    background-color: #403F3F;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-    color: #fff;
-    background: #1abc9c;
+    /*color: #fff;*/
+    /*background: #1abc9c;*/
+    color: #DCDBDB;
+    background-color: #403F3F;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   }
 
   #mainNav.navbar-shrink {
@@ -10143,16 +10184,20 @@ h3 {
   position: relative;
   display: block;
   max-width: 25rem;
-  border-radius: 0.5rem;
+  /*border-radius: 0.5rem;*/
+  height: 250px;
   overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
+
 .portfolio .portfolio-item .portfolio-item-caption {
   position: absolute;
   top: 0;
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  background-color: rgba(70, 69, 69, 0.9);
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;
@@ -10178,7 +10223,8 @@ h3 {
   top: 1rem;
   font-size: 3rem;
   line-height: 3rem;
-  color: #1abc9c;
+  /*color: #1abc9c;*/
+  color: #ff7518;
   opacity: 1;
 }
 
@@ -10278,3 +10324,195 @@ header .overlay {
     opacity: 0.5;
     z-index: 1;
 }
+
+/* Outer section wrapper */
+.section-wrapper {
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 40px;
+  background-color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.box {
+  border-radius: var(--myBorderRadius);
+  padding: 30px;
+  background-color: var(--myBackgroundColor-dark);
+  box-shadow: var(--myBoxShadow);
+  gap: 2rem;
+  z-index: 0;
+}
+
+.btn-custom {
+  border-radius: var(--myBorderRadius);
+  padding: 8px 25px;
+  font-weight: 500;
+  color: var(--myTextColor);
+  background-color: var(--myBackgroundColor);
+  box-shadow: var(--myBoxShadow);
+}
+
+.btn-custom:hover, .btn-custom.hover {
+  color: var(--myTextColor-dark);
+  background-color: var(--myBackgroundColor-dark);
+}
+
+.btn-myLink{
+  border-radius: 5rem;
+  padding: 8px 25px;
+  font-size: 1.5rem;
+  color: var(--myTextColor);
+  background-color: var(--myBackgroundColor);
+  box-shadow: var(--myBoxShadow);
+}
+
+.btn-myLink:hover, .btn-myLink.hover {
+  color: var(--myTextColor-dark);
+  background-color: var(--myBackgroundColor-dark);
+}
+
+.divider {
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.video-frame {
+  border-radius: var(--myBorderRadius);
+  overflow: hidden;
+  box-shadow: var(--myBoxShadow);
+}
+
+.myText {
+  color: var(--myTextColor);
+  margin-bottom: 0
+}
+
+.myText p {
+  color: var(--myTextColor);
+  margin-bottom: 0
+}
+
+.myBorder {
+  color: var(--myHeaderColor);
+}
+
+.myBackground {
+  color: var(--myBackgroundColor);
+  background-color: var(--myBackgroundColor);
+}
+
+.myHeader {
+  color: var(--myHeaderColor);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.fullscreen-section {
+  min-height: 100vh;
+}
+
+.myNav{
+  color: #3A3939;
+  background-color: #3A3939;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes the image fill the container without distortion */
+  border-radius: 0.25rem; /* optional, to match Bootstrap styling */
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/img/background.png") repeat;
+  opacity: 0.02; /* adjust strength */
+  pointer-events: none;
+  background-size: 600px 400px;
+  border-radius: 0.75rem;
+}
+
+.software-container {
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping to new lines */
+  gap: 20px; /* spacing between cards */
+  text-align: center;
+  justify-content: center;
+}
+
+.software-card {
+  display: flex;
+  flex-direction: column;
+  width: 11rem;
+  height: 11rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  box-shadow: var(--myBoxShadow);
+  border-radius: var(--myBorderRadius);
+  background-color: var(--myBackgroundColor);
+}
+
+.software-icon {
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 1rem;
+}
+
+.software-title {
+  text-align: center;
+  font-size: clamp(0.7rem, 4vw, 1.2rem);
+  color: var(--myTextColor);
+}
+
+@media (max-width: 576px) {
+  .software-card {
+    width: 4.5rem;
+    height: 4.5rem;
+    padding: 0.3rem;
+  }
+  
+  .software-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .software-title {
+    font-size: 0.55rem;
+  }
+
+}
+
+.btn-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center; 
+  align-items: center;
+  font-size: 1.25rem; 
+  background-color: var(--myBackgroundColor);
+  color: var(--myTextColor);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: var(--myBoxShadow);
+}
+
+.btn-circle:hover {
+  color: var(--myTextColor-dark);
+  background-color: var(--myBackgroundColor-dark);
+  text-decoration: none;
+}
+
+.btn-circle-primary {
+  border: 2px solid var(--myTextColor);
+}
+
+.btn-circle-primary:hover {
+  border: 2px solid var(--myTextColor-dark);
+  background-color: var(--myBackgroundColor-dark);
+}
+

@@ -10,13 +10,16 @@
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
+          var scrollTo = target.offset().top - 71;
+          var maxScroll = $(document).height() - $(window).height();
+
+          if (scrollTo > maxScroll) {
+              scrollTo = maxScroll;
+          }
+          
           $('html, body').animate({
-            scrollTop: (target.offset().top - 71)
+              scrollTop: scrollTo
           }, 1000, "easeInOutExpo");
-          return false;
-        }
       }
     });
   
@@ -64,6 +67,31 @@
         $(this).removeClass("floating-label-form-group-with-focus");
       });
     });
+
+    $('.modal').on('hidden.bs.modal', function () {
+        // Stop HTML5 videos
+        $(this).find('video').each(function () {
+            this.pause();
+            this.currentTime = 0;
+        });
+
+        // Stop iframe videos (like YouTube)
+        $(this).find('iframe').each(function () {
+            $(this).attr('src', $(this).attr('src'));
+        });
+    });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const user = "marc" + "_" + "1997";
+            const domain = "live" + ".nl";
+            const email = user + "@" + domain;
+
+            const link = document.getElementById("emailLink");
+            const text = document.getElementById("emailText");
+
+            text.textContent = email;
+            link.href = "mailto:" + email;
+        });
   
   })(jQuery); // End of use strict
   
