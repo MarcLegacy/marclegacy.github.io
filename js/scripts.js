@@ -4,82 +4,82 @@
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
     */
     (function($) {
-    "use strict"; // Start of use strict
-  
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-          var scrollTo = target.offset().top - 71;
-          var maxScroll = $(document).height() - $(window).height();
+        "use strict"; // Start of use strict
 
-          if (scrollTo > maxScroll) {
-              scrollTo = maxScroll;
-          }
-          
-          $('html, body').animate({
-              scrollTop: scrollTo
-          }, 1000, "easeInOutExpo");
-      }
-    });
-  
-    // Scroll to top button appear
-    $(document).scroll(function() {
-      var scrollDistance = $(this).scrollTop();
-      if (scrollDistance > 100) {
-        $('.scroll-to-top').fadeIn();
-      } else {
-        $('.scroll-to-top').fadeOut();
-      }
-    });
-  
-    // Closes responsive menu when a scroll trigger link is clicked
-    $('.js-scroll-trigger').click(function() {
-      $('.navbar-collapse').collapse('hide');
-    });
-  
-    // Activate scrollspy to add active class to navbar items on scroll
-    $('body').scrollspy({
-      target: '#mainNav',
-      offset: 80
-    });
-  
-    // Collapse Navbar
-    var navbarCollapse = function() {
-      if ($("#mainNav").offset().top > 100) {
-        $("#mainNav").addClass("navbar-shrink");
-      } else {
-        $("#mainNav").removeClass("navbar-shrink");
-      }
-    };
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
-  
-    // Floating label headings for the contact form
-    $(function() {
-      $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-      }).on("focus", ".floating-label-form-group", function() {
-        $(this).addClass("floating-label-form-group-with-focus");
-      }).on("blur", ".floating-label-form-group", function() {
-        $(this).removeClass("floating-label-form-group-with-focus");
-      });
-    });
+        // Smooth scrolling using jQuery easing
+        $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                var scrollTo = target.offset().top - 71;
+                var maxScroll = $(document).height() - $(window).height();
 
-    $('.modal').on('hidden.bs.modal', function () {
-        // Stop HTML5 videos
-        $(this).find('video').each(function () {
-            this.pause();
-            this.currentTime = 0;
+                if (scrollTo > maxScroll) {
+                    scrollTo = maxScroll;
+                }
+
+                $('html, body').animate({
+                    scrollTop: scrollTo
+                }, 1000, "easeInOutExpo");
+            }
         });
 
-        // Stop iframe videos (like YouTube)
-        $(this).find('iframe').each(function () {
-            $(this).attr('src', $(this).attr('src'));
+        // Scroll to top button appear
+        $(document).scroll(function () {
+            var scrollDistance = $(this).scrollTop();
+            if (scrollDistance > 100) {
+                $('.scroll-to-top').fadeIn();
+            } else {
+                $('.scroll-to-top').fadeOut();
+            }
         });
-    });
+
+        // Closes responsive menu when a scroll trigger link is clicked
+        $('.js-scroll-trigger').click(function () {
+            $('.navbar-collapse').collapse('hide');
+        });
+
+        // Activate scrollspy to add active class to navbar items on scroll
+        $('body').scrollspy({
+            target: '#mainNav',
+            offset: 80
+        });
+
+        // Collapse Navbar
+        var navbarCollapse = function () {
+            if ($("#mainNav").offset().top > 100) {
+                $("#mainNav").addClass("navbar-shrink");
+            } else {
+                $("#mainNav").removeClass("navbar-shrink");
+            }
+        };
+        // Collapse now if page is not at top
+        navbarCollapse();
+        // Collapse the navbar when page is scrolled
+        $(window).scroll(navbarCollapse);
+
+        // Floating label headings for the contact form
+        $(function () {
+            $("body").on("input propertychange", ".floating-label-form-group", function (e) {
+                $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
+            }).on("focus", ".floating-label-form-group", function () {
+                $(this).addClass("floating-label-form-group-with-focus");
+            }).on("blur", ".floating-label-form-group", function () {
+                $(this).removeClass("floating-label-form-group-with-focus");
+            });
+        });
+
+        $('.modal').on('hidden.bs.modal', function () {
+            // Stop HTML5 videos
+            $(this).find('video').each(function () {
+                this.pause();
+                this.currentTime = 0;
+            });
+
+            // Stop iframe videos (like YouTube)
+            $(this).find('iframe').each(function () {
+                $(this).attr('src', $(this).attr('src'));
+            });
+        });
 
         document.addEventListener("DOMContentLoaded", function () {
             const user = "marc" + "_" + "1997";
@@ -92,6 +92,5 @@
             text.textContent = email;
             link.href = "mailto:" + email;
         });
-  
-  })(jQuery); // End of use strict
+    })(jQuery); // End of use strict
   

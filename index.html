@@ -12,7 +12,7 @@
         <meta name="author" content="Marc Meijering" />
         <title>Marc Meijering | Game AI Programmer</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/img/Portfolio_Icon.png" />
         <!-- Font Awesome icons (free version)-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <!-- Google fonts-->
@@ -21,6 +21,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg myNav text-uppercase fixed-top" id="mainNav">
@@ -45,9 +46,58 @@
             <div class="overlay"></div>
 
             <!-- Masthead Background Video-->
-            <video playsinline autoplay muted loop class="position-absolute w-100 h-100" style="object-fit: cover;">
-                <source src="assets/vid/VedelemGameplay2.mp4" type="video/mp4">
-            </video>
+<!--            <video playsinline autoplay muted loop class="position-absolute w-100 h-100" style="object-fit: cover;">-->
+<!--                <source src="assets/vid/Vedelem_Gameplay.mp4" type="video/mp4">-->
+<!--            </video>-->
+
+            <video id="bgVideo" autoplay muted playsinline></video>
+            <script>
+                const videos = [
+                    "assets/vid/Vedelem_Gameplay.mp4",
+                    "assets/vid/Jotunnslayer_Gameplay.mp4",
+                    "assets/vid/Dollhouse_Gameplay.mp4"
+                ];
+                
+                const videoElement = document.getElementById("bgVideo");
+
+                let currentIndex = 0;
+
+                function playRandomSegment() {
+                    // Pick random video
+                    const video = videos[currentIndex];
+                    videoElement.src = video;
+                    videoElement.style.opacity = 0;
+                    
+                    currentIndex = (currentIndex + 1) % videos.length;
+
+                    videoElement.onloadedmetadata = () => {
+                        const duration = videoElement.duration;
+
+                        // Ensure at least 10 seconds available
+                        const maxStart = Math.max(0, duration - 10);
+
+                        // Pick random start time
+                        const startTime = Math.random() * maxStart;
+
+                        videoElement.currentTime = startTime;
+                        videoElement.play();
+
+                        videoElement.style.opacity = 1;
+
+                        setTimeout(() => {
+                            videoElement.style.opacity = 0;
+                        }, 9000);
+
+                        // After 10 seconds → switch video
+                        setTimeout(() => {
+                            playRandomSegment();
+                        }, 10000);
+                    };
+                }
+
+                // Start loop
+                playRandomSegment();
+            </script>
 
             <div class="container d-flex flex-column align-items-center position-relative">
                 
@@ -85,18 +135,18 @@
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                     <!-- Jotunnslayer: Hordes of Hel Item-->
-<!--                    <div class="col-md-6 col-lg-4 mb-5">-->
-<!--                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#JotunnslayerHordesOfHel">-->
-<!--                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">-->
-<!--                                <div class="portfolio-item-caption-content text-center myText">-->
-<!--                                    <p> Jotunnslayer <br>-->
-<!--                                        Hordes of Hel </p>-->
-<!--                                    <i class="fas fa-plus fa-3x"></i>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <img src="assets/img/portfolio/JotunnslayerHordesOfHel.png" alt="Jotunnslayer: Hordes of Hel" />-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#JotunnslayerHordesOfHel">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center myText">
+                                    <p> Jotunnslayer <br>
+                                        Hordes of Hel </p>
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="assets/img/portfolio/Jotunnslayer_Hordes_of_Hell_Icon.png" alt="Jotunnslayer: Hordes of Hel" />
+                        </div>
+                    </div>
                     <!-- Védelem: The Golden Horde Item-->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#VédelemTheGoldenHorde">
@@ -111,18 +161,18 @@
                         </div>
                     </div>
                     <!-- Dollhouse: Behind the Broken Mirror Item-->
-<!--                    <div class="col-md-6 col-lg-4 mb-5">-->
-<!--                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#DollhouseBehindTheBrokenMirror">-->
-<!--                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">-->
-<!--                                <div class="portfolio-item-caption-content text-center myText">-->
-<!--                                    <p> Dollhouse <br>-->
-<!--                                        Behind the Broken Mirror </p>-->
-<!--                                    <i class="fas fa-plus fa-3x"></i>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <img src="assets/img/portfolio/DollhouseBehindTheBrokenMirror.png" alt="Dollhouse: Behind the Broken Mirror" />-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#DollhouseBehindTheBrokenMirror">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center myText">
+                                    <p> Dollhouse <br>
+                                        Behind the Broken Mirror </p>
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="assets/img/portfolio/Dollhouse_Behind_the_Broken_Mirror_Icon.png" alt="Dollhouse: Behind the Broken Mirror" />
+                        </div>
+                    </div>
                     <!-- Crowd Simulation Item-->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#CrowdSimulation">
@@ -400,7 +450,7 @@
                                 <div class="text-center mb-3">
 
                                     <!-- Title -->
-                                    <img src="assets/img/portfolio/Jotunnslayer_Hordes_of_Hel.png" alt="Jotunnslayer Logo" class="img-fluid mb-4" id="portfolioModal1Label">
+                                    <img src="assets/img/portfolio/Jotunnslayer_Hordes_of_Hel_Title.png" alt="Jotunnslayer Logo" class="img-fluid mb-4" id="portfolioModal1Label">
                                     <!-- <h2 class="portfolio-modal-title myHeader text-uppercase mb-5" id="portfolioModal1Label">-->
                                     <!--     Védelem <br />-->
                                     <!--     The Golden Horde-->
@@ -412,7 +462,7 @@
                                     <iframe
                                             width="100%"
                                             height ="480"
-                                            src="https://youtu.be/CarCgRK4_jM?si=YwgGMB4Y-c7imdVK"
+                                            src="https://www.youtube.com/embed/CarCgRK4_jM?si=uH6uJsGpfdjSRQcT"
                                             title="Jotunnslayer Trailer"
                                             allowfullscreen>
                                     </iframe>
@@ -457,7 +507,7 @@
                                             <!-- Role -->
                                             <div class="row mb-2">
                                                 <div class="col-6 myText"><b>Role</b></div>
-                                                <div class="col-6 myText">Game Programmer</div>
+                                                <div class="col-6 myText">Porter / Game Programmer</div>
                                             </div>
 
                                             <!-- Team Size -->
@@ -465,10 +515,12 @@
                                                 <div class="col-6 myText"><b>Team Size</b></div>
                                                 <div class="col-6 myText">
                                                     <ul class="list-unstyled mb-0 myText">
-                                                        <li># Producers</li>
-                                                        <li># Designers</li>
-                                                        <li># Programmers</li>
-                                                        <li># Artists</li>
+                                                        <li>2 Marketing</li>
+                                                        <li>3 Producers</li>
+                                                        <li>4 Designers</li>
+                                                        <li>9 Programmers</li>
+                                                        <li>18 Artists</li>
+                                                        <li>7 QA</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -479,7 +531,7 @@
                                                 <div class="col-6 myText">
                                                     <ul class="list-unstyled mb-0 myText">
                                                         <li>2.5 Years</li>
-                                                        <li>(##/##/202# - Current)</li>
+                                                        <li>(17/10/2024 - Current)</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -511,7 +563,7 @@
                                         <div class="box mb-4">
                                             <h5 class="text-center mb-3 myHeader">My Contributions</h5>
                                             <ul class="list-unstyled mb-0 myText text-center">
-                                                <li>Porting to PS5</li>
+                                                <li>PS5 Porting</li>
                                                 <li>AI Navigation</li>
                                                 <li>Obstacle avoidance</li>
                                                 <li>Performance Optimization</li>
@@ -538,7 +590,7 @@
                                 <!-- Gameplay Video -->
                                 <div class="ratio ratio-16x9 video-frame mb-4">
                                     <video width="100%" height="360" controls preload="metadata">
-                                        <source src="assets/vid/VedelemGameplay2_Trim.mp4" type="video/mp4">
+                                        <source src="assets/vid/Jotunnslayer_Gameplay.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -720,7 +772,7 @@
                                 <!-- Gameplay Video -->
                                 <div class="ratio ratio-16x9 video-frame mb-4">
                                     <video width="100%" height="360" controls preload="metadata">
-                                        <source src="assets/vid/VedelemGameplay2_Trim.mp4" type="video/mp4">
+                                        <source src="assets/vid/Vedelem_Gameplay.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -786,7 +838,7 @@
                                 <div class="text-center mb-3">
 
                                     <!-- Title -->
-                                    <img src="assets/img/portfolio/Vedelem_The_Golden_Horde_Title.png" alt="Védelem Logo" class="img-fluid mb-4" id="portfolioModal3Label">
+                                    <img src="assets/img/portfolio/Dollhouse_Behind_the_Broken_Mirror_Title.png" alt="Dollhouse Logo" class="img-fluid mb-4" id="portfolioModal3Label">
                                     <!-- <h2 class="portfolio-modal-title myHeader text-uppercase mb-5" id="portfolioModal1Label">-->
                                     <!--     Védelem <br />-->
                                     <!--     The Golden Horde-->
@@ -798,15 +850,15 @@
                                     <iframe
                                             width="100%"
                                             height ="480"
-                                            src="https://www.youtube.com/embed/41-mVe8prp8"
-                                            title="Védelem Trailer"
+                                            src="https://www.youtube.com/embed/oIaeFDudFfA?si=C9J0AIGk0TQVlu_l"
+                                            title="DollhouseTrailer"
                                             allowfullscreen>
                                     </iframe>
                                 </div>
 
                                 <!-- Link Button -->
                                 <div class="text-center mb-4">
-                                    <a href="https://store.steampowered.com/app/1517150/"
+                                    <a href="https://store.steampowered.com/app/1791660/Dollhouse_Behind_the_Broken_Mirror/"
                                        target="_blank"
                                        class="btn btn-myLink">
                                         <i class="fab fa-steam fa-fw"></i>
@@ -818,11 +870,10 @@
                                 <div class="box mb-4">
                                     <h5 class="myHeader">Game Description</h5>
                                     <div class="myText">
-                                        <p> Védelem: The Golden Horde is a Real Time Strategy game set in 13th century Eastern Europe. </p>
-                                        <p> The Golden Horde is the biggest and deadliest Mongolian invasion that the world has ever seen. </p>
-                                        <p> As the last line of defense, you are called to save your lands against the Mongol empire. </p>
-                                        <p> They will ruthlessly attempt to pillage your economy and bring your Keep to ruin. </p>
-                                        <p> Manage the economy of your Castle, build new structures, find and exploit resources and expand your borders while mustering an army capable of repelling the Mongolian Invasion. </p>
+                                        <p> Enter the broken mind of Eliza de Moor, a once-celebrated singer, 
+                                            now trapped in the labyrinth of her own forgotten memories. </p>
+                                        <p> With the help of a new medicine, 
+                                            will you be able to piece together the mystery of your past? </p>
                                     </div>
                                 </div>
 
@@ -838,13 +889,13 @@
                                             <!-- Project Type -->
                                             <div class="row mb-2">
                                                 <div class="col-6 myText"><b>Project Type</b></div>
-                                                <div class="col-6 myText">RTS Base Defense Game</div>
+                                                <div class="col-6 myText">Horror Game</div>
                                             </div>
 
                                             <!-- Role -->
                                             <div class="row mb-2">
                                                 <div class="col-6 myText"><b>Role</b></div>
-                                                <div class="col-6 myText">Game AI Programmer</div>
+                                                <div class="col-6 myText">Porter / Game Programmer</div>
                                             </div>
 
                                             <!-- Team Size -->
@@ -852,10 +903,8 @@
                                                 <div class="col-6 myText"><b>Team Size</b></div>
                                                 <div class="col-6 myText">
                                                     <ul class="list-unstyled mb-0 myText">
-                                                        <li>2 Producers</li>
-                                                        <li>4 Designers</li>
-                                                        <li>7 Programmers</li>
-                                                        <li>5 Artists</li>
+                                                        <li>4 Programmers</li>
+                                                        <li>3 QA</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -866,7 +915,7 @@
                                                 <div class="col-6 myText">
                                                     <ul class="list-unstyled mb-0 myText">
                                                         <li>10 Months</li>
-                                                        <li>(01/09/2020 - 01/07/2021)</li>
+                                                        <li>(15/04/2024 - 09/04/2025)</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -876,10 +925,9 @@
                                                 <div class="col-6 myText"><b>Software</b></div>
                                                 <div class="col-6 myText">
                                                     <ul class="list-unstyled mb-0 myText">
-                                                        <li>Unity Engine</li>
+                                                        <li>Unreal Engine</li>
+                                                        <li>Rider</li>
                                                         <li>Perforce</li>
-                                                        <li>Monday.com</li>
-                                                        <li>Jenkins</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -887,7 +935,7 @@
                                             <!-- Language -->
                                             <div class="row">
                                                 <div class="col-6 myText"><b>Language</b></div>
-                                                <div class="col-6 myText">C#</div>
+                                                <div class="col-6 myText">C++</div>
                                             </div>
 
                                         </div>
@@ -898,12 +946,8 @@
                                         <div class="box mb-4">
                                             <h5 class="text-center mb-3 myHeader">My Contributions</h5>
                                             <ul class="list-unstyled mb-0 myText text-center">
-                                                <li>Close Combat</li>
-                                                <li>Ranged Combat</li>
-                                                <li>State Machines</li>
-                                                <li>Formation Decisions</li>
-                                                <li>Building Avoidance</li>
-                                                <li>Command/Combat Audio</li>
+                                                <li>PS5 Porting</li>
+                                                <li>Performance Optimization</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -913,59 +957,27 @@
                                 <div class="box mb-4">
                                     <h5 class="mb-3 text-center myHeader">Project Description</h5>
                                     <div class="myText">
-                                        <p> This student project is being made in my 3rd year and utilizes <u>Unity DOTS</u>. </p>
-                                        <p> Because of this, we can run a lot of units simultaneously while also holding 60 fps. </p>
-                                        <p> My main responsibility on this project was the <u>behavior of the formations and units</u>. </p>
-                                        <p> This included the different states they can go in,
-                                            how to react in certain situations and the combat between formations. </p>
-                                        <p> I've also worked on the <u>unit avoidance</u> towards buildings and implemented the <u>command and combat audio</u>. </p>
-                                        <p> The main things I've learned from this project are:
-                                            How <u>AI state machines</u> work; How to handle <u>combat with units in formations</u> ;
-                                            How to work with experimental code with few documentation;
-                                            How to work on a project through development phases;
-                                            How to work in the Unity Engine </p>
-                                        <p> The game was awarded for best 3rd year programmed game at our school. </p>
+                                        <p> The game was already made by another studio, but our company was tasked to finish the product so that it could be sold. </p>
+                                        <p> this included fixing bugs, optimizing the game to an acceptable amount and porting the game to both the xbox and playstation consoles. </p>
+                                        <p> I came halfway through the project and was primarily set to the porting of the game to the PS5 and later fixing bugs and optimization. </p>
+                                        <p> One of the challenging parts was that since the game was made entirely using Unreal blueprints and not with callbacks in mind, 
+                                            it became rather difficult to insert the required functionality needed to meet the console specific requirements. </p>
+                                        <p> Luckily the game would not be updated outside the company, so events could be added to hook on to.</p>
+                                        <p> Throughout this project, I became familiar with: Building a UE5 game for the PS5; 
+                                            Console specific implementations;
+                                            How to adhere to the guidelines set for a game to be published on the PS5;
+                                            Optimizing a game inside UE5 using its tools</p>
                                     </div>
                                 </div>
 
                                 <!-- Gameplay Video -->
                                 <div class="ratio ratio-16x9 video-frame mb-4">
                                     <video width="100%" height="360" controls preload="metadata">
-                                        <source src="assets/vid/VedelemGameplay2_Trim.mp4" type="video/mp4">
+                                        <source src="assets/vid/Dollhouse_Gameplay.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-
-                                <!-- Extra Info -->
-                                <div class="box mb-4">
-                                    <h5 class="mb-3 text-center myHeader">Biggest Contribution: Formation Combat</h5>
-                                    <div class="myText">
-                                        <p> Definitely one of the biggest and complicated system that I’ve ever worked on till now and also the system I’ve been working on most of this project. </p>
-                                        <p> How it works is as follows: A formation can engage another formation in 3 conditions:
-                                            Either by being ordered to attack another formation; Another formation is inside the formation engage radius while the current formation is in Idle State;
-                                            or the formation is being attacked by another formation while in Idle State. </p>
-                                        <p> If the formation starts engaging another formation, it will walk towards the targeted formation until the targeted formation is inside the attack radius. </p>
-                                        <p> There are also 3 ways to make a formation stop engaging;
-                                            The targeted formation lost its last unit; the current formation is ordered to move somewhere else;
-                                            or the targeted formation is outside of the engage radius and the current formation wasn’t ordered to engage the targeted formation. </p>
-                                        <p> This it the part that is the same for both ranged and melee formations, but after this they split in functionality. </p>
-                                        <p> As long as the targeted formation is inside the attack radius, all the archers in a ranged formation will attack as one group at once and they will target a random unit of the other formation to shoot at. </p>
-                                        <p> A melee formation works very different, as each melee unit will walk towards the closest enemy unit they can find. </p>
-                                        <p> The part where the unit can react to a unit in front of them is done by someone else and we called it Unit Perception. </p>
-                                        <p> When a unit finds an enemy unit in front of them, they will start doing damage at a time interval, until the other unit dies or is out of range. </p>
-                                        <p> If the formation engages a building the archers will fire towards the building’s location with a slight offset and melee units will walk towards the building's location. </p>
-                                        <p> The Unit Sense system will cast rays to see if the unit is in front of the building to start attacking the building until it is destroyed. </p>
-                                    </div>
-                                </div>
-                                <!-- Picture -->
-                                <!-- <div class="box mb-4 text-center">-->
-                                <!--     <img id="zoomImage"-->
-                                <!--         class="click-zoom"-->
-                                <!--         style="height: 100%; object-fit: cover; width: 100%;"-->
-                                <!--         src="assets/img/portfolio/FormationCombatUML.png"-->
-                                <!--         alt="FormationCombatUML">-->
-                                <!-- </div>-->
-
+                                
                                 <!-- Back Button -->
                                 <div class="text-center">
                                     <button class="btn btn-custom" data-dismiss="modal">

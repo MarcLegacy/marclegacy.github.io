@@ -10189,6 +10189,14 @@ h3 {
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  object-position: top;
+}
+
+.portfolio .portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .portfolio .portfolio-item .portfolio-item-caption {
@@ -10514,5 +10522,14 @@ header .overlay {
 .btn-circle-primary:hover {
   border: 2px solid var(--myTextColor-dark);
   background-color: var(--myBackgroundColor-dark);
+}
+
+#bgVideo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: opacity 1s ease;
 }
 
