@@ -123,7 +123,7 @@
         </header>
         <!-- Portfolio Section-->
         <section class="portfolio myBackground text-center d-flex justify-content-center align-items-center fullscreen-section position-relative background" id="portfolio">
-            <div class="container mb-5">
+            <div class="container d-flex flex-column align-items-center">
                 <!-- Portfolio Section Heading-->
                 <h1 class="page-section-heading text-center text-uppercase myText mb-0 mt-5">Portfolio</h1>
                 <!-- Icon Divider-->
@@ -132,130 +132,123 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Jotunnslayer: Hordes of Hel Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#JotunnslayerHordesOfHel">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Jotunnslayer <br>
-                                        Hordes of Hel </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="assets/img/portfolio/Jotunnslayer_Hordes_of_Hell_Icon.png" alt="Jotunnslayer: Hordes of Hel" />
-                        </div>
+                <!-- Games Section -->
+                <div class="box d-flex flex-column align-items-center mb-5 justify-content-center">
+                    <h3 class="text-center text-uppercase mb-0 myText">Games</h3>
+                    <div class="row justify-content-center">
+                        <div id="Games"></div>
+                            <script>
+                            (function() {
+                                const items = [
+                                    {
+                                        title: "Jotunnslayer",
+                                        subtitle: "Hordes of Hel",
+                                        modal: "#JotunnslayerHordesOfHel",
+                                        img: "assets/img/portfolio/Jotunnslayer_Hordes_of_Hell_Icon.png",
+                                        alt: "Jotunnslayer: Hordes of Hel"
+                                    },
+                                    {
+                                        title: "Védelem",
+                                        subtitle: "The Golden Horde",
+                                        modal: "#VédelemTheGoldenHorde",
+                                        img: "assets/img/portfolio/VédelemTheGoldenHorde.png",
+                                        alt: "Védelem: The Golden Horde"
+                                    },
+                                    {
+                                        title: "Dollhouse",
+                                        subtitle: "Behind the Broken Mirror",
+                                        modal: "#DollhouseBehindTheBrokenMirror",
+                                        img: "assets/img/portfolio/Dollhouse_Behind_the_Broken_Mirror_Icon.png",
+                                        alt: "Dollhouse: Behind the Broken Mirror"
+                                    },
+                                    {
+                                        title: "Streamlined Mastermind",
+                                        subtitle: "",
+                                        modal: "#StreamlinedMastermind",
+                                        img: "assets/img/portfolio/StreamlinedMastermind.png",
+                                        alt: "Streamlined Mastermind"
+                                    },
+                                    {
+                                        title: "Sea of Slaps",
+                                        subtitle: "",
+                                        modal: "#SeaOfSlaps",
+                                        img: "assets/img/portfolio/SeaOfSlaps.png",
+                                        alt: "Sea of Slaps"
+                                    },
+                                    {
+                                        title: "Gangstars",
+                                        subtitle: "",
+                                        modal: "#Gangstars",
+                                        img: "assets/img/portfolio/Gangstars.png",
+                                        alt: "Gangstars"
+                                    }
+                                ];
+                            
+                                const html = items.map(it => `
+                                    <div class="col-md-6 col-lg-4 mb-5">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="${it.modal}">
+                                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center myText">
+                                                    <p> ${it.title} <br> ${it.subtitle} </p>
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img src="${it.img}" alt="${it.alt}" />
+                                        </div>
+                                    </div>
+                                `).join("");
+                                document.currentScript.insertAdjacentHTML('beforebegin', html);
+                            })();
+                            </script>
                     </div>
-                    <!-- Védelem: The Golden Horde Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#VédelemTheGoldenHorde">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Védelem <br>
-                                        The Golden Horde </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="assets/img/portfolio/VédelemTheGoldenHorde.png" alt="Védelem: The Golden Horde" />
-                        </div>
-                    </div>
-                    <!-- Dollhouse: Behind the Broken Mirror Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#DollhouseBehindTheBrokenMirror">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Dollhouse <br>
-                                        Behind the Broken Mirror </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="assets/img/portfolio/Dollhouse_Behind_the_Broken_Mirror_Icon.png" alt="Dollhouse: Behind the Broken Mirror" />
-                        </div>
-                    </div>
-                    <!-- Crowd Simulation Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#CrowdSimulation">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Crowd Simulation </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/CrowdSimulation.png" alt="Crowd Simulation" />
-                        </div>
-                    </div>
-                    <!--Gangstars Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#Gangstars">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Gangstars </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/Gangstars.png" alt="Gangstars" />
-                        </div>
-                    </div>
-                    <!-- Streamlined Mastermind Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#StreamlinedMastermind">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Streamlined Mastermind </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/StreamlinedMastermind.png" alt="Streamlined Mastermind" />
-                        </div>
-                    </div>
-                    <!-- Pacman Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#Pacman">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Pacman </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/Pacman.png" alt="Pacman" />
-                        </div>
-                    </div>
-                    <!-- Raystorm Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#Raystorm">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Raystorm </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/Raystorm.png" alt="Raystorm" />
-                        </div>
-                    </div>
-                    <!-- Crime Engine Item-->
-<!--                    <div class="col-md-6 col-lg-4 mb-5">-->
-<!--                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#CrimeEngine">-->
-<!--                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">-->
-<!--                                <div class="portfolio-item-caption-content text-center myText">-->
-<!--                                    <p> Crime Engine </p>-->
-<!--                                    <i class="fas fa-plus fa-3x"></i>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <img class="img-fluid" src="assets/img/portfolio/CrimeEngine.png" alt="Crime Engine" />-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <!-- Sea of Slaps Item-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#SeaOfSlaps">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center myText">
-                                    <p> Sea of Slaps </p>
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/SeaOfSlaps.png" alt="Sea of Slaps" />
-                        </div>
+                </div>
+                <!-- Personal Projects Section -->
+                <div class="box d-flex flex-column align-items-center mb-5 justify-content-center w-100">
+                    <h3 class="text-center text-uppercase mb-0 myText">Personal Projects</h3>
+                    <div class="row justify-content-center w-100"> 
+                        <div id="Personal Projects"></div>
+                        <script>
+                            (function() {
+                                const items = [
+                                    {
+                                        title: "Project Architecture",
+                                        subtitle: "",
+                                        modal: "#ProjectArchitecture",
+                                        img: "assets/img/portfolio/ProjectArchitecture.png",
+                                        alt: "Project Architecture"
+                                    },
+                                    {
+                                        title: "Crowd Simulation",
+                                        subtitle: "",
+                                        modal: "#CrowdSimulation",
+                                        img: "assets/img/portfolio/CrowdSimulation.png",
+                                        alt: "Crowd Simulation"
+                                    },
+                                    {
+                                        title: "Raystorm",
+                                        subtitle: "",
+                                        modal: "#Raystorm",
+                                        img: "assets/img/portfolio/Raystorm.png",
+                                        alt: "Raystorm"
+                                    },
+                                ];
+
+                                const html = items.map(it => `
+                                    <div class="col-md-6 col-lg-4 mb-5">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="${it.modal}">
+                                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center myText">
+                                                    <p> ${it.title} <br> ${it.subtitle} </p>
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img src="${it.img}" alt="${it.alt}" />
+                                        </div>
+                                    </div>
+                                `).join("");
+                                document.currentScript.insertAdjacentHTML('beforebegin', html);
+                            })();
+                        </script>
                     </div>
                 </div>
             </div>
@@ -285,10 +278,10 @@
 
                     <!-- About Section Content -->
                     <div class="myText text-start">
-                        <p>My name is Marc Meijering, and I am a Game Programmer, experienced in Game AI, porting and optimizing games. </p>
-                        <p>Graduate from Breda University of Applied Sciences following the IGAD program.</p>
+                        <p>My name is Marc Meijering, and I am a Game Programmer experienced in Game AI, porting and optimizing games. </p>
+                        <p>Graduate from Breda University of Applied Sciences following the International Game Architecture and Design program.</p>
                         <p>Passionate about programming games and enjoy exploring the various types of interesting AI that I can create to challenge players or enhance the overall immersion of the game.</p>
-                        <p>Experienced in working in a team environment and collaborating with designers, artists and programmers.</p>
+                        <p>Experienced in working in a team environment and collaborating with designers, artists and other programmers.</p>
                         <p>Seen as a reliable and efficient team member who takes responsibility for their work.</p>
                         <p>Currently working at Games Farm as Game Programmer.</p>
                     </div>
@@ -530,7 +523,7 @@
                                                 <div class="col-6 myText"><b>Duration</b></div>
                                                 <div class="col-6 myText">
                                                     <ul class="list-unstyled mb-0 myText">
-                                                        <li>2.5 Years</li>
+                                                        <li>2 Years</li>
                                                         <li>(17/10/2024 - Current)</li>
                                                     </ul>
                                                 </div>
@@ -564,6 +557,7 @@
                                             <h5 class="text-center mb-3 myHeader">My Contributions</h5>
                                             <ul class="list-unstyled mb-0 myText text-center">
                                                 <li>PS5 Porting</li>
+                                                <li>Switch 2 Porting</li>
                                                 <li>AI Navigation</li>
                                                 <li>Obstacle avoidance</li>
                                                 <li>Performance Optimization</li>
@@ -578,11 +572,13 @@
                                     <h5 class="mb-3 text-center myHeader">Project Description</h5>
                                     <div class="myText">
                                         <p> The game was already in development for a year when I joined and my main responsibility became making sure the enemy AI would navigate towards the player in different environments. </p>
-                                        <p> This would involve modifying the existing obstacle avoidance system and adding a flow-field for navigation through difficult terrain using Burst. </p>
+                                        <p> This would involve modifying the existing obstacle avoidance system and adding a flow-field for navigation through difficult terrain using Unity's Burst compiler. </p>
+                                        <br>
                                         <p> After a couple of months in I was assigned to do the porting of the project to the PS5 in 3 months time. </p>
                                         <p> Quite the task for such a big project, but the codebase already contained legacy code that was made for ports to the PS4, which I could forward to the PS5 calls with some adjustments. </p>
                                         <p> After the release there were still many things that needed to be worked on when it came to porting. </p>
                                         <p> Things like console specific functionality, bugs and both performance and memory optimization would still keep me on porting for a couple more months. </p>
+                                        <br>
                                         <p> Throughout the project, I became familiar with: Optimization tools that Unity provides; Memory management; uncommon features that the PS5 provides. </p>
                                     </div>
                                 </div>
@@ -756,10 +752,12 @@
                                     <div class="myText">
                                         <p> This student project is being made in my 3rd year and utilizes <u>Unity DOTS</u>. </p>
                                         <p> Because of this, we can run a lot of units simultaneously while also holding 60 fps. </p>
+                                        <br>
                                         <p> My main responsibility on this project was the <u>behavior of the formations and units</u>. </p>
                                         <p> This included the different states they can go in,
                                             how to react in certain situations and the combat between formations. </p>
                                         <p> I've also worked on the <u>unit avoidance</u> towards buildings and implemented the <u>command and combat audio</u>. </p>
+                                        <br>
                                         <p> The main things I've learned from this project are:
                                             How <u>AI state machines</u> work; How to handle <u>combat with units in formations</u> ;
                                             How to work with experimental code with few documentation;
@@ -782,6 +780,7 @@
                                     <h5 class="mb-3 text-center myHeader">Biggest Contribution: Formation Combat</h5>
                                     <div class="myText">
                                         <p> Definitely one of the biggest and complicated system that I’ve ever worked on till now and also the system I’ve been working on most of this project. </p>
+                                        <br>
                                         <p> How it works is as follows: A formation can engage another formation in 3 conditions:
                                             Either by being ordered to attack another formation; Another formation is inside the formation engage radius while the current formation is in Idle State;
                                             or the formation is being attacked by another formation while in Idle State. </p>
@@ -789,9 +788,11 @@
                                         <p> There are also 3 ways to make a formation stop engaging;
                                             The targeted formation lost its last unit; the current formation is ordered to move somewhere else;
                                             or the targeted formation is outside of the engage radius and the current formation wasn’t ordered to engage the targeted formation. </p>
-                                        <p> This it the part that is the same for both ranged and melee formations, but after this they split in functionality. </p>
+                                        <br>
+                                        <p> That engagement logic is the same for both ranged and melee formations, but after this they split in functionality. </p>
                                         <p> As long as the targeted formation is inside the attack radius, all the archers in a ranged formation will attack as one group at once and they will target a random unit of the other formation to shoot at. </p>
                                         <p> A melee formation works very different, as each melee unit will walk towards the closest enemy unit they can find. </p>
+                                        <br>
                                         <p> The part where the unit can react to a unit in front of them is done by someone else and we called it Unit Perception. </p>
                                         <p> When a unit finds an enemy unit in front of them, they will start doing damage at a time interval, until the other unit dies or is out of range. </p>
                                         <p> If the formation engages a building the archers will fire towards the building’s location with a slight offset and melee units will walk towards the building's location. </p>
@@ -960,9 +961,11 @@
                                         <p> The game was already made by another studio, but our company was tasked to finish the product so that it could be sold. </p>
                                         <p> this included fixing bugs, optimizing the game to an acceptable amount and porting the game to both the xbox and playstation consoles. </p>
                                         <p> I came halfway through the project and was primarily set to the porting of the game to the PS5 and later fixing bugs and optimization. </p>
+                                        <br>
                                         <p> One of the challenging parts was that since the game was made entirely using Unreal blueprints and not with callbacks in mind, 
                                             it became rather difficult to insert the required functionality needed to meet the console specific requirements. </p>
                                         <p> Luckily the game would not be updated outside the company, so events could be added to hook on to.</p>
+                                        <br>
                                         <p> Throughout this project, I became familiar with: Building a UE5 game for the PS5; 
                                             Console specific implementations;
                                             How to adhere to the guidelines set for a game to be published on the PS5;
@@ -1010,7 +1013,7 @@
 
                                     <!-- Title -->
                                      <h2 class="portfolio-modal-title myHeader text-uppercase mb-5" id="portfolioModal4Label">
-                                         CrowSimulation
+                                         Crowd Simulation
                                      </h2>
                                 </div>
 
@@ -1031,7 +1034,7 @@
                                        target="_blank"
                                        class="btn btn-myLink">
                                         <i class="fab fa-github fa-fw"></i>
-                                        Github
+                                        GitHub
                                     </a>
                                 </div>
 
@@ -2037,6 +2040,143 @@
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
                                     </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project Architecture Modal-->
+        <div class="portfolio-modal modal fade" id="ProjectArchitecture" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+
+                    <!-- Close Button -->
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+
+                    <div class="container-fluid py-5">
+                        <div class="row">
+                            <!-- 20% left / 60% content / 20% right on large screens -->
+                            <div class="col-12 col-lg-8 offset-lg-2">
+
+                                <div class="text-center mb-3">
+
+                                    <!-- Title -->
+                                    <h2 class="portfolio-modal-title myHeader text-uppercase mb-5" id="portfolioModal10Label">
+                                        Project Architecture
+                                    </h2>
+                                </div>
+
+                                <!-- Project Description -->
+                                <div class="box mb-4">
+                                    <h5 class="mb-3 text-center myHeader">Project Description</h5>
+                                    <div class="myText">
+                                        <p> This portfolio piece will mainly contain descriptions of systems/concepts used.</p>
+                                        <p> The main purpose of this project is not a game or simulation, but rather gaining familiarity into advanced coding concepts and understanding their utility.</p>
+                                        <p> Heavily inspired by a YouTube channel called 
+                                            <a href="https://www.youtube.com/@git-amend" 
+                                               target="_blank">
+                                                git-amend
+                                            </a>
+                                            , which provides examples of awesome concepts to try in projects. </p>
+                                        <p> Next to that it also serves as a base structure for future projects.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Project Structure -->
+                                <div class="box mb-4">
+                                    <h5 class="mb-3 text-center myHeader">Project Structure</h5>
+                                    <div class="myText">
+                                        <p>The code of the project is structured into 3 different sections: Core, Systems and Gameplay.</p>
+                                        <p>Gameplay depends on Systems, Systems depends on Core, the dependency is enforced by the use of Assemblies</p>
+                                        <p><b>Core</b>: Main purpose is being the base layer for everything else, every project contains this full layer.</p>
+                                        <p><b>Systems</b>: Main purpose is to transform data. Each system works independently of each other and should be able to be excluded from a new project.</p>
+                                        <p><b>Gameplay</b>: Main purpose is game specific logic and would mostly not be taken into new projects. </p>
+                                    </div>
+
+                                    <img id="zoomImage"
+                                         class="mb-3 text-center" 
+                                         style="height: 70%; object-fit: cover; width: 70%;"
+                                         src="assets/img/portfolio/ProjectArchitecture.png"
+                                         alt="Project Architecture Diagram">
+                                </div>
+
+                                <!-- Custom Monobehaviour -->
+                                <div class="box mb-4">
+                                    <h5 class="mb-3 text-center myHeader">Custom Monobehaviour
+                                        <a href="https://github.com/MarcLegacy/MyMonobehaviour/blob/main/MyMonoBehaviour.cs"
+                                           target="_blank"
+                                            class="myLink">
+                                            <i class="fab fa-github fa-fw"></i>
+                                            GitHub
+                                        </a> 
+                                    </h5>
+                                    <div class="myText">
+                                        <p> Own base script which contains specific logic that every script should process.</p>
+                                        <p> Hides Unity's default method calls and directs it to custom method calls.</p>
+                                        <p> Does not provide an any Update methods unless explicitly added as an interface.</p>
+                                        <p> An added helper script throws warning when script do try to implement Unity's default methods calls.</p>
+                                        <p> Depending on if the object will be pooled, will not call any enable or disable methods calls if not yet pooled. This avoids logic running when the object is just being pooled.</p>
+                                        <p> I'm aware of disabling some features that normal behaviours provide, like making the function async, but I'll either add this later or will use the normal base.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Update Manager -->
+                                <div class="box mb-4">
+                                    <h5 class="mb-3 text-center myHeader">Update Manager
+                                        <a href="https://github.com/MarcLegacy/MyMonobehaviour/blob/main/UpdateManager.cs"
+                                           target="_blank"
+                                           class="myLink">
+                                            <i class="fab fa-github fa-fw"></i>
+                                            GitHub
+                                        </a>
+                                    </h5>
+                                    <div class="myText">
+                                        <p> Custom script that handles all update loops and replaces Unity's native call to its Update methods</p>
+                                        <p> Any Custom MonoBehaviour containing an update interface automatically registers itself in its respective update list when enabled and unregisters when disabled.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Standalone Systems -->
+                                <div class="box mb-4">
+                                    <h5 class="mb-3 text-center myHeader">Standalone Systems</h5>
+                                    <div class="myText">
+                                        <p> Depends on Unity and my Core modules</p>
+                                        <p> Provides interfaces which components can use.</p>
+                                        <p> Ideally, the interface is data only, this is to ease the process to transfer the system to use Unity's DOTS when needed.</p>
+                                        <p> The main purpose of these systems is to transform data of objects.</p>
+                                        <p> Communicates with other systems using the Event Bus.</p>
+                                    </div>
+                                </div>
+
+                                <!-- git-amend -->
+                                <div class="box mb-4">
+                                    <h5 class="mb-3 text-center myHeader">git-amend Systems used</h5>
+                                    <div class="myText">
+                                        <p> The following are concepts which the project uses that are copied and altered from git-amend's channel.</p>
+                                        <p> <b>Event Bus</b>: Main purpose is to send events without having depending on one another. I use this mainly for independent systems.</p>
+                                        <p> <b>Service Locator</b>: Used as an entry point to get single instanced classes</p>
+                                        <p> <b>HFSM</b>: To help with AI state navigation, though will replace this with my own due to missing functionality that I want and the desire to create my own.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Swarm Movement System -->
+                                <div class="box mb-4">
+                                    <h5 class="mb-3 text-center myHeader">Swarm Movement System
+                                        <a href="https://github.com/MarcLegacy/SwarmMovement/tree/main"
+                                           target="_blank"
+                                           class="myLink">
+                                            <i class="fab fa-github fa-fw"></i>
+                                            GitHub
+                                        </a> 
+                                    </h5>
+                                    <div class="myText">
+                                        <p> A system that handles steering and updating the movement of swarming agents. It provides logic that combines multiple forces like seek, avoidance, separation, alignment, and cohesion to drive agent velocity, position, and rotation.</p>
+                                        <p>The system iterates registered ISwarmMovable agents, finds neighbors, computes a weighted desired velocity from each enabled movement force, clamps steering by acceleration, updates position, and rotates the agent toward travel direction. The interface ISwarmMovable defines the state the system needs, including movement limits, target data, neighbor lists, and force configuration.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
